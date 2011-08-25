@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="vo">
+	<class name="Login" table="t_login">
+		<id name="id" column="login_id">
+			<generator class="native"></generator>
+		</id>
+		
+		<property name="username" unique="true" not-null="true" column="login_name" length="32"/>
+		<property name="password" column="login_password" length="32"/>
+		
+		<many-to-one name="user" column="uid" not-null="true" class="User" unique="true" cascade="all"></many-to-one>
+	</class>
+	
+	
+</hibernate-mapping>

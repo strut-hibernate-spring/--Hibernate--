@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="vo">
+	<class name="Person" table="t_person" abstract="true">
+		<id name="id" column="id">
+			<generator class="uuid"></generator>
+		</id>
+		<property name="name" unique="true" not-null="true" column="name" length="32"/>
+		
+		<property name="age" column="age" length="32"/>
+		
+		<property name="sex" column="sex" length="32"/>
+		
+		<union-subclass name="Student" table="t_student">
+			<property name="school"></property>
+		</union-subclass>
+		
+		<union-subclass name="Worker" table="t_worker">
+			<property name="factory"></property>
+		</union-subclass>
+		
+	</class>
+	
+	
+</hibernate-mapping>

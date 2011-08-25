@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="vo">
+	<class name="Teacher" table="t_teacher">
+		<id name="id" column="id">
+			<generator class="native"></generator>
+		</id>
+		
+		<property name="name" unique="true" not-null="true" column="name" length="32"/>
+		
+		<property name="age" column="age" length="32"/>
+		
+		<set name="students" table="t_teacher_student" cascade="save-update">
+			<key column="t_id"></key>
+			<many-to-many class="Student" column="s_id"></many-to-many>
+		</set>
+		
+		
+	</class>
+	
+	
+</hibernate-mapping>

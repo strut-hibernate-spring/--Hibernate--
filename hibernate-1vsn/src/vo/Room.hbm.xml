@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="vo">
+	<class name="Room" table="t_room">
+		<id name="id" column="room_id">
+			<generator class="native"></generator>
+		</id>
+		
+		<property name="roomName" unique="true" not-null="true" column="room_name" length="32"/>
+		
+		<set name="users" cascade="save-update" inverse="true">
+			<key column="room_id"></key>
+			<one-to-many class="User"/>
+		</set>
+		
+	</class>
+	
+	
+</hibernate-mapping>

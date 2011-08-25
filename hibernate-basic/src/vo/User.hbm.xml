@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="vo">
+	<class name="User" table="t_user">
+		<id name="id" column="uid"  length="32">
+			<generator class="uuid"></generator>
+		</id>
+		
+		<property name="username" unique="true" not-null="true" column="username" length="32"/>
+		<property name="password" not-null="true" column="password" length="32"/>
+		<property name="age" column="age" length="2"/>
+		<property name="sex" column="sex" length="1"/>
+		<property name="phone" column="phone"/>
+		<property name="address" column="address"/>
+	</class>
+	
+	
+</hibernate-mapping>
